@@ -17,7 +17,19 @@ define( 'WSDL_URL', 'https://www.gesgolf.it/GesgolfWsExporter/GesgolfExporter.as
 define( 'WSDL_URL_TEST', 'https://www.gesgolf.it/GesgolfWsExporter_Test/GesgolfExporter.asmx?WSDL');
 define( 'GESGOLF_BASE_URL', 'http://www.gesgolf.it/GolfOnline');
 
-function hook_Chronogolf_Widgets() {
+// Require once the Autoload
+if ( file_exists( dirname( __FILE__ ) . '/inc/autoload.php' ) ) {
+	require_once dirname( __FILE__ ) . '/inc/autoload.php';
+}
+
+/**
+ * Run the Theme
+ */
+if ( class_exists( 'GolfGavi\\Init' ) ) {
+	GolfGavi\Init::register_services();
+}
+
+/* function hook_Chronogolf_Widgets() {
 	$locale = 'it-IT';
     ?>
         <!-- Start / Chronogolf Widgets -->
@@ -43,4 +55,4 @@ function hook_Chronogolf_Widgets() {
 		<script src="//booking.slope.it/js/widget.js" type="text/javascript"></script>
     <?php
 }
-add_action('wp_head', 'hook_Chronogolf_Widgets');
+add_action('wp_head', 'hook_Chronogolf_Widgets'); */
