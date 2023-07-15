@@ -24,7 +24,7 @@ class Enqueue extends Base
         wp_register_script(
             'golfgavi-js', 
             $this->theme_uri . '/dist/js/main.js', 
-            array( 'golfgavi-selectordie-js' ), 
+            array( 'jquery' ), 
             $this->version/* $time */, 
             true
         );

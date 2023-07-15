@@ -100,6 +100,6 @@ var onchange = function () {
 //     onChange: onchange(),
 //     size: 6
 // });
-$('.select-date').on('click', onchange)
-
-$('select').trigger('change');
+// $('.select-date').on('click', onchange)
+$('.select-date select[name="mese"]').on('change', onchange)
+$('.select-date select[name="mese"]').trigger('change');

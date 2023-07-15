@@ -1,6 +1,10 @@
 .tmpl-gare {
     margin: auto;
 
+    & > div {
+        max-width: 100%;
+    }
+
     .select-date {
         text-align: center;
         padding: 2.62em;
