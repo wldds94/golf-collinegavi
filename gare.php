@@ -35,6 +35,7 @@ else { $bridge_qode_paged = 1; }
 
 <?php get_header(); ?>
     <?php get_template_part( 'title' ); ?>
+
     <div class="container tmpl-gare"<?php if($bridge_qode_background_color != "") { echo " style='background-color:". $bridge_qode_background_color ."'";} ?>>
         <?php if(isset($bridge_qode_options['overlapping_content']) && $bridge_qode_options['overlapping_content'] == 'yes') {?>
             <div class="overlapping_content"><div class="overlapping_content_inner">
@@ -93,7 +94,13 @@ else { $bridge_qode_paged = 1; }
         <?php } ?>
     </div>
 
-    </div>
-	<?php do_action('bridge_qode_action_page_after_container') ?>
+</div>
+<div class="overlay">
+    <div id="request-panel">
+        <div class="close">X</div>
+        <div class="panel-container"></div>
+    </div>        
+</div>
+<?php do_action('bridge_qode_action_page_after_container') ?>
 	
 <?php get_footer(); ?>

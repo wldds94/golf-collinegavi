@@ -16,8 +16,8 @@ class Ajax extends Base
         add_action( 'wp_ajax_update_competitions', array( $this, 'update_competitions_callback' ) );
         add_action( 'wp_ajax_nopriv_update_competitions', array( $this, 'update_competitions_callback' ) );
 
-        // add_action( 'wp_ajax_show_ranking', 'show_ranking_callback' );
-        // add_action( 'wp_ajax_nopriv_show_ranking', 'show_ranking_callback' );
+        add_action( 'wp_ajax_show_ranking', array( $this, 'show_ranking_callback' ) );
+        add_action( 'wp_ajax_nopriv_show_ranking', array( $this, 'show_ranking_callback' ) );
 
         // add_action( 'wp_ajax_show_single_score', 'show_single_score_callback' );
         // add_action( 'wp_ajax_nopriv_show_single_score', 'show_single_score_callback' );
@@ -29,7 +29,42 @@ class Ajax extends Base
         // add_action( 'wp_ajax_nopriv_show_hcp', 'show_hcp_callback' );
     }
 
-    public function update_competitions_callback(){
+    public function show_ranking_callback(){
+        // var_dump($_POST);
+        if(isset($_POST['competitionID']) && isset($_POST['modoGaraId'])){
+            $gesGolf = new GesGolfManager(CLUB_ID, SERIAL_NUMBER_ID, WSDL_URL);
+            $competitionID = $_POST['competitionID'];
+            $modo_gara_id = $_POST['modoGaraId'];
+            $numGiri = '1';
+            if(isset($_POST['numGiri'])) {
+                $numGiri = $_POST['numGiri'];
+            }
+            
+            $classifica = $gesGolf->getRanking($competitionID, $modo_gara_id);
+            
+            if(isset($classifica['Classifica'])){
+                
+                foreach($classifica['Classifica'] as $key => $classifica_single_gara){
+                    echo '<div class="single-table clearfix">';
+                    if ($modo_gara_id == GARA_SINGOLA){
+                        include(locate_template('template-parts/classifica-singola.php'));
+                    }
+                    elseif ($modo_gara_id == GARA_ECLETTICA){
+                        // pre_var_dump($classifica);
+                        include(locate_template('template-parts/classifica-eclettica.php'));
+                    }
+                    else {
+                        include(locate_template('template-parts/classifica-squadre.php'));
+                    }
+                    echo '</div>';
+                }
+                echo '<div class="scoreContainer"></div>';
+            }
+            wp_die();
+        }
+    }
+
+    public function update_competitions_callback() {
         if(isset($_POST['anno']) && isset($_POST['mese'])){
             $anno = $_POST['anno'];
             $mese = $_POST['mese'];

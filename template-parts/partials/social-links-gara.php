@@ -11,7 +11,7 @@
         </li><span><?= esc_html__('orari di partenza', 'golfgavi') ?></span>
     </div>
     <div class="liContainer <?= (!isset($orari)) ? 'disabled' : 'enabled' ?>">
-        <li class="<?= $evidence ? 'first' : '' ?> ranking <?= (!isset($classifica)) ? 'disabled' : 'enabled' ?>">
+        <li class="<?= (isset($evidence) && true === $evidence) ? 'first' : '' ?> ranking <?= (!isset($classifica)) ? 'disabled' : 'enabled' ?>">
             <a title="<?= esc_attr__('classifiche', 'golfgavi') ?>"></a>
         </li><span><?= esc_html__('classifiche', 'golfgavi') ?></span>
     </div>
