@@ -436,3 +436,29 @@ body.page-template-gare .table.classifica-singola .tbody .tr .td:nth-child(6) {
     width: 24%;
   }
 }
+body.page-template-gare .table.orari-gara .thead .tr .th:nth-child(1) {
+  width: 34%;
+}
+body.page-template-gare .table.orari-gara .thead .tr .th:nth-child(2) {
+  width: 45%;
+}
+body.page-template-gare .table.orari-gara .tbody .tr .td:nth-child(1) {
+  width: 14%;
+}
+body.page-template-gare .table.orari-gara .tbody .tr .td:nth-child(2) {
+  width: 10%;
+}
+body.page-template-gare .table.orari-gara .tbody .tr .td:nth-child(3) {
+  width: 55%;
+}
+@media screen and (min-width: 640px) {
+  body.page-template-gare .table.orari-gara .tbody .tr .td:nth-child(1) {
+    width: 20%;
+  }
+  body.page-template-gare .table.orari-gara .tbody .tr .td:nth-child(2) {
+    width: 10%;
+  }
+  body.page-template-gare .table.orari-gara .tbody .tr .td:nth-child(3) {
+    width: 60%;
+  }
+}

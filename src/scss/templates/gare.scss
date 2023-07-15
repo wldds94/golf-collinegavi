@@ -536,6 +536,97 @@ body {
             }
 
             &.classifica-eclettica {}
+
+            // --- ORARI ---
+            &.orari-gara {
+                
+                .thead {
+                    .tr {
+                        .th {
+                            &:nth-child(1) {
+                                width: 34%;
+                            }
+                            &:nth-child(2) {
+                                width: 45%;
+                            }
+                            // @media screen and (min-width: 640px) {
+                            //     &:nth-child(1) {
+                            //         width: 34%;
+                            //     }
+                            //     &:nth-child(2) {
+                            //         width: 45%;
+                            //     }
+                            // }
+                        }
+                    }
+                }
+                .tbody {
+                    .tr {
+                        .td {
+                            &:nth-child(1) {
+                                width: 14%;
+                            }
+                            &:nth-child(2) {
+                                width: 10%;
+                            }
+                            &:nth-child(3) {
+                                width: 55%;
+                            }
+                            @media screen and (min-width: 640px) {
+                                &:nth-child(1) {
+                                    width: 20%;
+                                }
+                                &:nth-child(2) {
+                                    width: 10%;
+                                }
+                                &:nth-child(3) {
+                                    width: 60%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // &.orari-gara {
+            //     margin-bottom: 45px;
+
+            //     .thead {
+            //         margin-bottom: 45px;
+
+            //         .thead {
+            //             margin-bottom: 45px;
+
+            //             .tr {
+            //                 margin-bottom: 45px;
+
+            //                 .th {
+            //                     margin-bottom: 45px;
+
+            //                     &:nth-child(1) {
+            //                         width: 34%;
+            //                     }
+
+            //                     &:nth-child(2) {
+            //                         width: 45%;
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     }
+
+            //     // .body {
+            //     //     .tr {
+            //     //         td {
+            //     //             &:nth-child(1) {
+            //     //                 width: 34%;
+            //     //             }
+            //     //             &:nth-child(2) {
+            //     //                 width: 45%;
+            //     //             }
+            //     //         }
+            //     //     }
+            //     // }
+            // }
         }
 
     }

@@ -103,3 +103,43 @@ var onchange = function () {
 // $('.select-date').on('click', onchange)
 $('.select-date select[name="mese"]').on('change', onchange)
 $('.select-date select[name="mese"]').trigger('change');
+
+/**
+ * 
+ * FUNCTIONS
+*/
+function call_show_score(elem){
+    
+    var tr = $(elem).parent('span').parent('.td').parent('.tr');
+    var table = tr.parent('.tbody').parent('.table');
+    var prev = $(table).parent('.classificaSingolaContainer');
+    var $formData = {
+        action: 'show_single_score',
+        competitionID: table.attr('data-gara-id'),
+        nrTessera: tr.attr('data-nr-tessera'),
+        codiceNominativo: tr.attr('data-codice-nominativo'),
+        anno: tr.data('anno'),
+        giro: tr.data('giro'),
+        clubID: tr.data('club-id'),
+        name: $(elem).html(),
+        numGiri: table.data('giri')
+    };
+    
+    $.ajax({
+        url: ajaxurl,
+        type: 'post',
+        data: $formData,
+        success: function( result ) {
+            var elementScore = $('.scoreContainer');
+            var elementRanking = $(table).parent('.classificaSingolaContainer').parent('.block').parent('.single-table').find('.block.classifica-singola');
+            var scrollTop = $('.overlay').scrollTop();
+            
+            slideAwayAndChangeContentPanel(elementScore, 'away', result, '.single-table', scrollTop);
+            $('#request-panel').on('click','.back',function() {
+//                    $('.back').click(function(){
+                slideAwayAndChangeContentPanel(elementRanking, 'away', prev,'.single-table', scrollTop);
+//                        $('.back').removeClass('visible');
+            });
+        }
+    });
+}

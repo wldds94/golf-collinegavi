@@ -22,11 +22,25 @@ class Ajax extends Base
         // add_action( 'wp_ajax_show_single_score', 'show_single_score_callback' );
         // add_action( 'wp_ajax_nopriv_show_single_score', 'show_single_score_callback' );
 
-        // add_action( 'wp_ajax_show_hours', 'show_hours_callback' );
-        // add_action( 'wp_ajax_nopriv_show_hours', 'show_hours_callback' );
+        add_action( 'wp_ajax_show_hours', array( $this, 'show_hours_callback' ) );
+        add_action( 'wp_ajax_nopriv_show_hours', array( $this, 'show_hours_callback' ) );
 
         // add_action( 'wp_ajax_show_hcp', 'show_hcp_callback' );
         // add_action( 'wp_ajax_nopriv_show_hcp', 'show_hcp_callback' );
+    }
+
+    public function show_hours_callback(){
+        if(isset($_POST['competitionID'])){
+            $gesGolf = new GesGolfManager(CLUB_ID, SERIAL_NUMBER_ID, WSDL_URL);
+            $competitionID = $_POST['competitionID'];
+            
+            $orari = $gesGolf->getStartHours($competitionID);
+            
+            if(isset($orari)){
+                include(locate_template('template-parts/orari-gara.php'));
+            }
+            wp_die();
+        }
     }
 
     public function show_ranking_callback(){
