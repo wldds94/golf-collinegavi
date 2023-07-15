@@ -20,7 +20,8 @@
 
                 <div class="tr" data-giri="<?= $gara->durata ?>" data-nome-cognome="<?= $single_team['nome'].' '.$single_team['cognome'] ?>" data-nr-tessera="<?= $single_team['nr_tessera'] ?>" data-codice-nominativo="<?= $single_team['codice_nominativo'] ?>" data-anno="<?= $single_team['anno'] ?>" data-giro="1" data-club-id="<?= $single_team['club_id'] ?>">
                     <div class="td"><span><?= $single_team['posizione'] ?></span></div>
-                    <div class="td"><span><a onclick="call_show_score(this)" href="javascript: void(0)"><?= $single_team['nome'].' '.$single_team['cognome'] ?></a></span></div>
+                    <?php /* <div class="td"><span><a onclick="call_show_score(this)" href="javascript: void(0)"><?= $single_team['nome'].' '.$single_team['cognome'] ?></a></span></div> */ ?>
+                    <div class="td"><span><a class="call_show_score" href="javascript:void(0)"><?= $single_team['nome'].' '.$single_team['cognome'] ?></a></span></div>
                     <div class="td"><span><?= $single_team['club_name'] ?></span></div>
                     <div class="td"><span><?= $single_team['ladies'] ?></span></div>
                     <div class="td"><span><?= $single_team['jun_sen'] ?></span></div>

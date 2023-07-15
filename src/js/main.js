@@ -116,9 +116,9 @@ $('.select-date select[name="mese"]').trigger('change');
  * 
  * FUNCTIONS
 */
-function call_show_score(elem){
+var call_show_score = function (e){
     
-    var tr = $(elem).parent('span').parent('.td').parent('.tr');
+    var tr = $(this).parent('span').parent('.td').parent('.tr');
     var table = tr.parent('.tbody').parent('.table');
     var prev = $(table).parent('.classificaSingolaContainer');
     var $formData = {
@@ -129,25 +129,27 @@ function call_show_score(elem){
         anno: tr.data('anno'),
         giro: tr.data('giro'),
         clubID: tr.data('club-id'),
-        name: $(elem).html(),
+        name: $(this).html(),
         numGiri: table.data('giri')
     };
     
     $.ajax({
-        url: ajaxurl,
+        url: golfgavi_vars?.ajax_url,
         type: 'post',
         data: $formData,
         success: function( result ) {
-            var elementScore = $('.scoreContainer');
-            var elementRanking = $(table).parent('.classificaSingolaContainer').parent('.block').parent('.single-table').find('.block.classifica-singola');
-            var scrollTop = $('.overlay').scrollTop();
+            // var elementScore = $('.scoreContainer');
+            // var elementRanking = $(table).parent('.classificaSingolaContainer').parent('.block').parent('.single-table').find('.block.classifica-singola');
+            // var scrollTop = $('.overlay').scrollTop();
             
-            slideAwayAndChangeContentPanel(elementScore, 'away', result, '.single-table', scrollTop);
-            $('#request-panel').on('click','.back',function() {
-//                    $('.back').click(function(){
-                slideAwayAndChangeContentPanel(elementRanking, 'away', prev,'.single-table', scrollTop);
-//                        $('.back').removeClass('visible');
-            });
+            // slideAwayAndChangeContentPanel(elementScore, 'away', result, '.single-table', scrollTop);
+            // $('#request-panel').on('click','.back',function() {
+            //     // $('.back').click(function(){
+            //     slideAwayAndChangeContentPanel(elementRanking, 'away', prev,'.single-table', scrollTop);
+            //     // $('.back').removeClass('visible');
+            // });
         }
     });
 }
+
+$(document).on('click', '.call_show_score', call_show_score)

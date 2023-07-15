@@ -19,14 +19,40 @@ class Ajax extends Base
         add_action( 'wp_ajax_show_ranking', array( $this, 'show_ranking_callback' ) );
         add_action( 'wp_ajax_nopriv_show_ranking', array( $this, 'show_ranking_callback' ) );
 
-        // add_action( 'wp_ajax_show_single_score', 'show_single_score_callback' );
-        // add_action( 'wp_ajax_nopriv_show_single_score', 'show_single_score_callback' );
+        add_action( 'wp_ajax_show_single_score', array( $this, 'show_single_score_callback' ) );
+        add_action( 'wp_ajax_nopriv_show_single_score', array( $this, 'show_single_score_callback' ) );
 
         add_action( 'wp_ajax_show_hours', array( $this, 'show_hours_callback' ) );
         add_action( 'wp_ajax_nopriv_show_hours', array( $this, 'show_hours_callback' ) );
 
         add_action( 'wp_ajax_show_hcp', array( $this, 'show_hcp_callback' ) );
         add_action( 'wp_ajax_nopriv_show_hcp', array( $this, 'show_hcp_callback' ) );
+    }
+
+    public function show_single_score_callback(){
+        if(isset($_POST['competitionID']) && isset($_POST['nrTessera']) && isset($_POST['codiceNominativo']) && isset($_POST['clubID']) && isset($_POST['anno']) && isset($_POST['giro'])){
+            $gesGolf            = new GesGolfManager(CLUB_ID, SERIAL_NUMBER_ID, WSDL_URL);
+            $competitionID      = $_POST['competitionID']===''? '0' :$_POST['competitionID'];
+            $nrTessera          = $_POST['nrTessera']===''? '0' :$_POST['nrTessera'];
+            $codiceNominativo   = $_POST['codiceNominativo']===''? '0' :$_POST['codiceNominativo'];
+            $anno               = $_POST['anno']===''? '0' :$_POST['anno'];
+            $giro               = $_POST['giro']===''? '0' :$_POST['giro'];
+            $clubID             = $_POST['clubID']===''? '0' :$_POST['clubID'];
+            $nome               = htmlentities($_POST['name']);
+            $numGiri            = isset($_POST['numGiri']) ? $_POST['numGiri'] : '1';
+            
+            for($index = 0; $index < $numGiri; $index++){
+                $score = $gesGolf->getScore($competitionID,$nrTessera,$codiceNominativo,$clubID,$anno,$giro);
+                $singleScore = $score->GetScoreResult->Scores->Score;
+        //        pre_var_dump($singleScore);
+                if(isset($singleScore)){
+                    include(locate_template('template-parts/single-score.php'));
+                }
+            }
+            
+            wp_die();
+        }
+        
     }
 
     public function show_hcp_callback(){
