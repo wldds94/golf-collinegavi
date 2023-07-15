@@ -231,10 +231,11 @@ body #request-panel h3 {
 }
 body.page-template-gare #request-panel {
   background-color: #fff;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
+  z-index: 102;
   overflow: auto;
   width: 100%;
   transform: translatex(-100%);
@@ -248,9 +249,11 @@ body.page-template-gare #request-panel {
   }
 }
 body.page-template-gare #request-panel .close {
-  background: #fff;
-  height: 60px;
-  width: 60px;
+  position: absolute;
+  top: 120px;
+  right: 20px;
+  height: 40px;
+  width: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -270,6 +273,7 @@ body.page-template-gare #request-panel .close::after {
 }
 body.page-template-gare #request-panel .panel-container {
   padding: 8px;
+  padding-top: 160px !important;
 }
 @media screen and (min-width: 768px) {
   body.page-template-gare #request-panel .panel-container {
@@ -288,7 +292,6 @@ body.page-template-gare .overlay {
   margin: auto;
   overflow: hidden;
   background-color: transparent;
-  z-index: -1;
   transition-property: background;
 }
 body.page-template-gare.request-panel-open .overlay {

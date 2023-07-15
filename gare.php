@@ -95,12 +95,14 @@ else { $bridge_qode_paged = 1; }
     </div>
 
 </div>
-<div class="overlay">
-    <div id="request-panel">
-        <div class="close"></div>
-        <div class="panel-container"></div>
-    </div>        
+
+<div class="overlay">      
 </div>
+<div id="request-panel">
+    <div class="close"></div>
+    <div class="panel-container"></div>
+</div> 
+
 <?php do_action('bridge_qode_action_page_after_container') ?>
 	
 <?php get_footer(); ?>
