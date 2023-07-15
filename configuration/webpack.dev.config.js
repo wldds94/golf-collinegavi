@@ -41,9 +41,9 @@ module.exports = merge(webpackConfiguration, {
     compress: true,
     hot: false,
     allowedHosts: [
-      '*',
+      '.sviluppo.host',
     ],
-    headers: { 'Access-Control-Allow-Origin': 'http://localhost' },
+    headers: { 'Access-Control-Allow-Origin': 'https://golfcollinedelgavi.sviluppo.host/' },
     ...environment.server,
   },
 

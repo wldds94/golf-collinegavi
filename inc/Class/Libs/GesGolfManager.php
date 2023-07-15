@@ -188,7 +188,7 @@ class GesGolfManager {
         
         $resultCall = $this->_soapClient->__call('GetCalendarioGare', array($arguments));
         $result = $resultCall->GetCalendarioGareResult;
-        var_dump($result);
+        // var_dump($result);
         return ($result->Errore == 'OK') ? 
                ( count($result->Gare->GaraInCalendario) == 1 ) ? array( $result->Gare->GaraInCalendario ) : $result->Gare->GaraInCalendario
                 : NULL;

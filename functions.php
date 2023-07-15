@@ -17,6 +17,9 @@ define( 'WSDL_URL', 'https://www.gesgolf.it/GesgolfWsExporter/GesgolfExporter.as
 define( 'WSDL_URL_TEST', 'https://www.gesgolf.it/GesgolfWsExporter_Test/GesgolfExporter.asmx?WSDL');
 define( 'GESGOLF_BASE_URL', 'http://www.gesgolf.it/GolfOnline');
 
+define('GARA_SINGOLA', 1);
+define('GARA_ECLETTICA', 2);
+
 // Require once the Autoload
 if ( file_exists( dirname( __FILE__ ) . '/inc/autoload.php' ) ) {
 	require_once dirname( __FILE__ ) . '/inc/autoload.php';
