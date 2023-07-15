@@ -14,9 +14,66 @@
             letter-spacing: .1em;
             display: inline-block;
         }
+
+        &::after {
+            content: '';
+            border: 4px solid transparent;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            width: 50px;
+            height: 50px;
+            display: block;
+            top: -3px;
+            z-index: 0;
+            left: -1px;
+            margin: 0.62em auto;
+        }
+
+        &.active::after {
+            border-color: rgba(240, 178, 3, 0.4);
+            border-top-color: #f0b203;
+            -webkit-transform: rotate(1080deg);
+            transform: rotate(1080deg);
+            -webkit-transition-property: -webkit-transform;
+            transition-property: transform;
+            -webkit-transition-duration: 5000ms;
+            transition-duration: 5000ms;
+        }
     }
 
     #gare {
+        h2 {
+            color: #000;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            line-height: 1.2em;
+            letter-spacing: 0.1em;
+            text-align: center;
+            margin: 2rem;
+
+            &:after {
+                content: "";
+                background-color: #f0b203;
+                height: 4px;
+                width: 50px;
+                display: block;
+                margin: 25px auto;
+                margin-left: 0;
+            }
+        }
+
+        .listCompetitionContainer {
+            padding-bottom: 30px;
+            transition-property: opacity;
+            transition-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+            transition-duration: 600ms;
+
+            &.disabled {
+                opacity: 0;
+            }
+        }
+
         .gara {
             background-color: #fff;
             margin: 2em auto;
@@ -25,6 +82,99 @@
 
             &.first {
                 border-color: #bc2b0a;
+
+                h2 {
+                    &:after {
+                        background-color: #bc2b0a;
+                    }
+                }
+
+                footer .social-links .liContainer li {
+                    background-color: #bc2b0a;
+                }
+            }
+
+            .textSection {
+                padding: 2.62em;
+                border-bottom: 1px solid #e9e4de;
+            }
+
+            .content-gara {
+                p {
+                    font-weight: 300;
+                    font-size: 1em;
+                    letter-spacing: 0.05em;
+                    line-height: 2em;
+                }
+            }
+
+            footer {
+                padding: 0.62em 1.62em;
+                margin: 0;
+                border: 0;
+                font: inherit;
+                vertical-align: baseline;
+
+                .social-links {
+                    padding: 0;
+                    list-style: none;
+                    margin: 0;
+                    overflow-wrap: break-word;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 40px;
+
+                    .liContainer {
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                        margin: .5em 0;
+                        cursor: pointer;
+                        // width: 49%;
+
+                        @media screen and (min-width: 992px) {
+                            // width: 20%;
+                            margin: 1em 0;
+                        }
+
+                        li {
+                            color: #fff;
+                            background: #f0b203;
+                            position: relative;
+                            width: 3em;
+                            height: 3em;
+                            line-height: 3em;
+                            border-radius: 50%;
+                            display: inline-block;
+                            text-align: center;
+                            white-space: nowrap;
+                            // vertical-align: middle;
+
+                            a {
+                                display: block;
+                                text-indent: -999em;
+                                overflow: hidden;
+                            }
+
+                            &.disabled {
+                                background-color: #a1a1a1;
+                            }
+
+                        }
+
+                        span {
+                            color: #bc2b0a;
+                            letter-spacing: .05em;
+                            font-size: .9em;
+                            // padding: 0 1.5em;
+                            margin: 0;
+                            border: 0;
+                            font: inherit;
+                            vertical-align: baseline;
+                            white-space: nowrap;
+                        }
+                    }
+                }
             }
         }
     }

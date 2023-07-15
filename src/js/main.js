@@ -31,7 +31,9 @@ var onchange = function () {
             // $('.gara:lt('+step+')').show();
 
 
-            $('.liContainer.enabled').click(function () {
+            $('#gare').on('click', '.liContainer.enabled', function (e) {
+                e.preventDefault()
+                e.stopImmediatePropagation()
                 var li = $(this).find('li');
                 globalPosition = $(this).offset().top - 350;
                 console.log(globalPosition);
@@ -39,7 +41,7 @@ var onchange = function () {
                 var modoGaraID = $(this).parent().data('modo-id');
                 console.log(modoGaraID);
                 var numGiri = $(this).parent().data('giri');
-                $this = $(this);
+                // const $this = $(this);
                 if (li.hasClass('calendar')) {
                     $formData = {
                         action: 'show_hours',

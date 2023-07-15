@@ -19,7 +19,7 @@ class Enqueue extends Base
 
         wp_enqueue_script( 'jquery');
 
-        wp_enqueue_script( 'golfgavi-selectordie-js', $this->theme_uri . '/js/selectordie.min', array( 'jquery' ), $this->version/* $time */, true );
+        // wp_enqueue_script( 'golfgavi-selectordie-js', $this->theme_uri . '/dist/js/selectordie.min', array( 'jquery' ), $this->version/* $time */, true );
         
         wp_register_script(
             'golfgavi-js', 
