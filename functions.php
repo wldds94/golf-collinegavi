@@ -29,6 +29,9 @@ if ( class_exists( 'GolfGavi\\Init' ) ) {
 	GolfGavi\Init::register_services();
 }
 
+error_reporting(E_ALL); 
+ini_set('display_errors', 1); 
+
 /* function hook_Chronogolf_Widgets() {
 	$locale = 'it-IT';
     ?>

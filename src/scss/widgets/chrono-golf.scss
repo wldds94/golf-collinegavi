@@ -1,0 +1,41 @@
+
+#slope-bl #slope-widget {
+	text-align: left !important;
+	padding-right: 20px;
+}
+
+#slope-bl #slope-widget .date-range-container .slp-block {
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+#slope-bl #slope-widget .date-range-container .slp-block label {
+	text-align: left !important;
+}
+#slope-bl #slope-widget .date-range-container .slp-block input {
+	width: 100%;
+}
+
+#slope-bl #slope-widget .slp-block .select-container label {
+	margin-bottom: 0;
+}
+
+#slope-bl #slope-widget button {
+	margin-top: 30px;
+	background-color: #f18500;
+	border-radius: 2px;
+}
+
+.daterangepicker .calendar.left .calendar-table {
+	width: fit-content;
+    background: white;
+    padding: 20px 8px !important;
+	border: 1px solid rgba(0,0,0,0.15) !important;
+    border-radius: 0.25rem;
+}
+.daterangepicker.dropdown-menu {
+    padding: 0;
+}
+.daterangepicker.dropdown-menu.single .calendar.left {
+    margin: 0;
+}

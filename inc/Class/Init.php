@@ -13,7 +13,8 @@ final class Init
 	{
 		return [
 			// Base\ThemeSetup::class,
-			// Base\Enqueue::class,
+			Base\Enqueue::class,
+			Base\Ajax::class,
 			// Base\Template::class,
 			// Services\AdminNotices::class,
 			// Plugins\ACF\ACF::class,
