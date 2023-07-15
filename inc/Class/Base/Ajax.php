@@ -25,8 +25,22 @@ class Ajax extends Base
         add_action( 'wp_ajax_show_hours', array( $this, 'show_hours_callback' ) );
         add_action( 'wp_ajax_nopriv_show_hours', array( $this, 'show_hours_callback' ) );
 
-        // add_action( 'wp_ajax_show_hcp', 'show_hcp_callback' );
-        // add_action( 'wp_ajax_nopriv_show_hcp', 'show_hcp_callback' );
+        add_action( 'wp_ajax_show_hcp', array( $this, 'show_hcp_callback' ) );
+        add_action( 'wp_ajax_nopriv_show_hcp', array( $this, 'show_hcp_callback' ) );
+    }
+
+    public function show_hcp_callback(){
+        if(isset($_POST['competitionID'])){
+            $gesGolf = new GesGolfManager(CLUB_ID, SERIAL_NUMBER_ID, WSDL_URL);
+            $competitionID = $_POST['competitionID'];
+            
+            $hcp = $gesGolf->getHandicap($competitionID);
+            
+            if(isset($hcp)){
+                include(locate_template('template-parts/handicap-gara.php'));
+            }
+            wp_die();
+        }
     }
 
     public function show_hours_callback(){

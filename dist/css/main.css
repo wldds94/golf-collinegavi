@@ -315,10 +315,10 @@ body.page-template-gare .table .thead .tr {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  padding: 0.62em;
+  padding: 0;
 }
-body.page-template-gare .table .thead .tr th span {
-  font-size: 0.85em;
+body.page-template-gare .table .thead .tr .th span {
+  font-size: 0.8em;
   line-height: 1;
 }
 body.page-template-gare .table .tbody {
@@ -461,4 +461,22 @@ body.page-template-gare .table.orari-gara .tbody .tr .td:nth-child(3) {
   body.page-template-gare .table.orari-gara .tbody .tr .td:nth-child(3) {
     width: 60%;
   }
+}
+body.page-template-gare .table.handicap-gara .thead .tr .th:nth-child(1) {
+  width: 26%;
+}
+body.page-template-gare .table.handicap-gara .thead .tr .th:nth-child(2) {
+  width: 25%;
+}
+body.page-template-gare .table.handicap-gara .thead .tr .th:nth-child(3), body.page-template-gare .table.handicap-gara .thead .tr .th:nth-child(4), body.page-template-gare .table.handicap-gara .thead .tr .th:nth-child(5) {
+  width: 8%;
+}
+body.page-template-gare .table.handicap-gara .tbody .tr .td:nth-child(1) {
+  width: 24%;
+}
+body.page-template-gare .table.handicap-gara .tbody .tr .td:nth-child(2) {
+  width: 27%;
+}
+body.page-template-gare .table.handicap-gara .tbody .tr .td:nth-child(3), body.page-template-gare .table.handicap-gara .tbody .tr .td:nth-child(4), body.page-template-gare .table.handicap-gara .tbody .tr .td:nth-child(5) {
+  width: 7%;
 }

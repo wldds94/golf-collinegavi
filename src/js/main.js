@@ -32,9 +32,17 @@ var onchange = function () {
 
 
             $('#gare').on('click', '.liContainer.enabled', function (e) {
-                e.preventDefault()
-                e.stopImmediatePropagation()
+
                 var li = $(this).find('li');
+                if (li.hasClass('disabled')) {
+                    return
+                }
+
+                if (!li.hasClass('document')) {
+                    e.preventDefault()
+                    e.stopImmediatePropagation() 
+                }
+
                 globalPosition = $(this).offset().top - 350;
                 console.log(globalPosition);
                 var competitionID = $(this).parent().attr('data-competition-id');
