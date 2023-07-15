@@ -97,7 +97,7 @@ else { $bridge_qode_paged = 1; }
 </div>
 <div class="overlay">
     <div id="request-panel">
-        <div class="close">X</div>
+        <div class="close"></div>
         <div class="panel-container"></div>
     </div>        
 </div>

@@ -268,6 +268,14 @@ body.page-template-gare #request-panel .close::before, body.page-template-gare #
 body.page-template-gare #request-panel .close::after {
   transform: rotate(90deg);
 }
+body.page-template-gare #request-panel .panel-container {
+  padding: 8px;
+}
+@media screen and (min-width: 768px) {
+  body.page-template-gare #request-panel .panel-container {
+    padding: 2em;
+  }
+}
 body.page-template-gare .overlay {
   transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
   transition-duration: 400ms;
@@ -291,14 +299,6 @@ body.page-template-gare.request-panel-open .overlay {
 }
 body.page-template-gare.request-panel-open #request-panel {
   transform: translatex(0);
-}
-body.page-template-gare.request-panel-open #request-panel .panel-container {
-  padding: 8px;
-}
-@media screen and (min-width: 768px) {
-  body.page-template-gare.request-panel-open #request-panel .panel-container {
-    padding: 2em;
-  }
 }
 body.page-template-gare .table {
   margin: 2.62em auto;

@@ -261,21 +261,29 @@ body {
                 cursor: pointer;
                 transform: translatex(0) rotate(45deg);
                 // transition: transform 0.4s ease-in-out 0.2s;
-                
-                &::before, 
+
+                &::before,
                 &::after {
-                  content: "";
-                  height: 2px;
-                  background: #898989;
-                  width: 24px;
-                  display: block;
-                  position: absolute;
+                    content: "";
+                    height: 2px;
+                    background: #898989;
+                    width: 24px;
+                    display: block;
+                    position: absolute;
                 }
-                
+
                 &::after {
-                  transform: rotate(90deg);
+                    transform: rotate(90deg);
                 }
-              }
+            }
+
+            .panel-container {
+                padding: 8px;
+
+                @media screen and (min-width: 768px) {
+                    padding: 2em;
+                }
+            }
         }
 
         .overlay {
@@ -306,13 +314,9 @@ body {
             #request-panel {
                 transform: translatex(0);
 
-                .panel-container {
-                    padding: 8px;
+                // .panel-container {
 
-                    @media screen and (min-width: 768px) {
-                        padding: 2em;
-                    }
-                }
+                // }
             }
         }
 
@@ -395,9 +399,11 @@ body {
                             &:nth-child(1) {
                                 width: 20%;
                             }
+
                             &:nth-child(2) {
                                 width: 34%;
                             }
+
                             &:nth-child(3) {
                                 width: 10%;
                             }
@@ -411,9 +417,11 @@ body {
                             &:nth-child(1) {
                                 width: 20%;
                             }
+
                             &:nth-child(2) {
                                 width: 34%;
                             }
+
                             &:nth-child(3) {
                                 width: 10%;
                             }
