@@ -147,9 +147,10 @@ var call_show_score = function (e){
             // var scrollTop = $('.overlay').scrollTop();
             
             // slideAwayAndChangeContentPanel(elementScore, 'away', result, '.single-table', scrollTop);
-            $('#request-panel').on('click','.back',function() {
-                $(elementScore).removeClass('panel-open')
-                $(elementScore).html('')
+            $('#request-panel').on('click','.back', function() {
+                const elementScoreBackContainer = $(this).parent('.single-score').parent('.td') // .find('.scoreSingleContainerRequest')
+                $(elementScoreBackContainer).removeClass('panel-open')
+                $(elementScoreBackContainer).html('')
             });
         }
     });
