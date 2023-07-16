@@ -51,6 +51,12 @@
 .tmpl-gare {
   margin: auto;
 }
+@media screen and (max-width: 480px) {
+  .tmpl-gare .container_inner {
+    width: 350px;
+    max-width: 90%;
+  }
+}
 .tmpl-gare > div {
   max-width: 100%;
 }
@@ -131,8 +137,13 @@
   background-color: #bc2b0a;
 }
 .tmpl-gare #gare .gara .textSection {
-  padding: 2.62em;
+  padding: 1.62em;
   border-bottom: 1px solid #e9e4de;
+}
+@media screen and (min-width: 780px) {
+  .tmpl-gare #gare .gara .textSection {
+    padding: 2.62em;
+  }
 }
 .tmpl-gare #gare .gara .content-gara p {
   font-weight: 300;

@@ -1,6 +1,13 @@
 .tmpl-gare {
     margin: auto;
 
+    .container_inner {
+        @media screen and (max-width: 480px) {
+            width: 350px;
+            max-width: 90%;
+        }
+    }
+
     &>div {
         max-width: 100%;
     }
@@ -99,8 +106,12 @@
             }
 
             .textSection {
-                padding: 2.62em;
+                padding: 1.62em;
                 border-bottom: 1px solid #e9e4de;
+
+                @media screen and (min-width: 780px) {
+                    padding: 2.62em;
+                }
             }
 
             .content-gara {
