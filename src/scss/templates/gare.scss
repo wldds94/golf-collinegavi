@@ -476,19 +476,6 @@ body {
 
                 .tbody {
                     .tr {
-                        // .td:nth-child(1) {
-                        //     width: 6%;
-                        // }
-                        // .td:nth-child(4), .td:nth-child(5), .td:nth-child(6) {
-                        //     width: 10%;
-                        //     border: none;
-                        //     flex: 1 auto;
-                        // }
-                        // .td:nth-child(2), .td:nth-child(3) {
-                        //     width: 27%;
-                        //     flex: 2 auto;
-                        // }
-
                         .td {
                             &:nth-child(1) {
                                 width: 6%;
@@ -512,6 +499,39 @@ body {
 
                             &:nth-child(6) {
                                 width: 10%;
+                            }
+
+                            &.scoreSingleContainerRequest {
+                                width: 100%;
+                                border-left: 0 !important;
+                                padding: 0;
+                                background-color: white;
+                                text-align: left;
+
+                                &.panel-open {
+                                    margin-bottom: 8px;
+                                }
+
+                                h3 {
+                                    padding-top: 1em !important;
+                                }
+
+                                & > .single-score {
+                                    padding: 8px;
+                                }
+
+                                .single-score {
+                                    &.table {
+                                        margin: 1.31em auto;
+                                    }
+
+                                    .back {
+                                        text-align: right;
+                                        margin-top: 12px;
+                                        margin-bottom: -12px;
+                                        cursor: pointer;
+                                    }
+                                }
                             }
 
                             @media screen and (max-width: 550px) {

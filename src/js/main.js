@@ -132,22 +132,25 @@ var call_show_score = function (e){
         name: $(this).html(),
         numGiri: table.data('giri')
     };
+
+    const elementScore = $(tr).find('.scoreSingleContainerRequest')
     
     $.ajax({
         url: golfgavi_vars?.ajax_url,
         type: 'post',
         data: $formData,
         success: function( result ) {
+            $(elementScore).html(result);
+            $(elementScore).addClass('panel-open')
             // var elementScore = $('.scoreContainer');
             // var elementRanking = $(table).parent('.classificaSingolaContainer').parent('.block').parent('.single-table').find('.block.classifica-singola');
             // var scrollTop = $('.overlay').scrollTop();
             
             // slideAwayAndChangeContentPanel(elementScore, 'away', result, '.single-table', scrollTop);
-            // $('#request-panel').on('click','.back',function() {
-            //     // $('.back').click(function(){
-            //     slideAwayAndChangeContentPanel(elementRanking, 'away', prev,'.single-table', scrollTop);
-            //     // $('.back').removeClass('visible');
-            // });
+            $('#request-panel').on('click','.back',function() {
+                $(elementScore).removeClass('panel-open')
+                $(elementScore).html('')
+            });
         }
     });
 }

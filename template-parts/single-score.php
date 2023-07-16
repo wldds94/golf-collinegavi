@@ -4,7 +4,7 @@
 ?>
 
 <div class="single-score">
-    <div class="back">back</div>
+    <div class="back">Chiudi</div>
     <h3><?= htmlspecialchars($nome) ?></h3>
     <div class="table single-score" data-gara-id="<?= $competitionID ?>">
         <div class="thead">

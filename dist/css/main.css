@@ -425,6 +425,31 @@ body.page-template-gare .table.classifica-singola .tbody .tr .td:nth-child(5) {
 body.page-template-gare .table.classifica-singola .tbody .tr .td:nth-child(6) {
   width: 10%;
 }
+body.page-template-gare .table.classifica-singola .tbody .tr .td.scoreSingleContainerRequest {
+  width: 100%;
+  border-left: 0 !important;
+  padding: 0;
+  background-color: white;
+  text-align: left;
+}
+body.page-template-gare .table.classifica-singola .tbody .tr .td.scoreSingleContainerRequest.panel-open {
+  margin-bottom: 8px;
+}
+body.page-template-gare .table.classifica-singola .tbody .tr .td.scoreSingleContainerRequest h3 {
+  padding-top: 1em !important;
+}
+body.page-template-gare .table.classifica-singola .tbody .tr .td.scoreSingleContainerRequest > .single-score {
+  padding: 8px;
+}
+body.page-template-gare .table.classifica-singola .tbody .tr .td.scoreSingleContainerRequest .single-score.table {
+  margin: 1.31em auto;
+}
+body.page-template-gare .table.classifica-singola .tbody .tr .td.scoreSingleContainerRequest .single-score .back {
+  text-align: right;
+  margin-top: 12px;
+  margin-bottom: -12px;
+  cursor: pointer;
+}
 @media screen and (max-width: 550px) {
   body.page-template-gare .table.classifica-singola .tbody .tr .td:nth-child(1) {
     width: 4%;
