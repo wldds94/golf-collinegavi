@@ -55,23 +55,26 @@
 
     #gare {
         h2 {
-            color: #000;
+            color: #f0b203;
             font-size: 1.5em;
             text-transform: uppercase;
             line-height: 1.2em;
             letter-spacing: 0.1em;
-            text-align: center;
-            margin: 2rem;
-
-            &:after {
-                content: "";
-                background-color: #f0b203;
-                height: 4px;
-                width: 50px;
-                display: block;
-                margin: 25px auto;
-                margin-left: 0;
+            // text-align: center;
+            margin: 2rem 0 2rem 2rem;
+            @media screen and (min-width: 640px) {
+                margin-top: 0;
             }
+
+            // &:after {
+            //     content: "";
+            //     background-color: #f0b203;
+            //     height: 4px;
+            //     width: 50px;
+            //     display: block;
+            //     margin: 25px auto;
+            //     margin-left: 0;
+            // }
         }
 
         .listCompetitionContainer {
@@ -95,14 +98,26 @@
                 border-color: #bc2b0a;
 
                 h2 {
-                    &:after {
-                        background-color: #bc2b0a;
+                    color: #bc2b0a;
+                }
+
+                .textSection {
+                    .titleSection {
+                        .date-gara {
+                            background-color: #bc2b0a;
+                        }
                     }
                 }
 
-                footer .social-links .liContainer li {
-                    background-color: #bc2b0a;
-                }
+                // h2 {
+                //     &:after {
+                //         background-color: #bc2b0a;
+                //     }
+                // }
+
+                // footer .social-links .liContainer li {
+                //     background-color: #bc2b0a;
+                // }
             }
 
             .textSection {
@@ -112,9 +127,47 @@
                 @media screen and (min-width: 780px) {
                     padding: 2.62em;
                 }
+
+                .titleSection {
+                    display: flex;
+                    flex-direction: column;
+
+                    @media screen and (min-width: 640px) {
+                        flex-direction: row;
+
+                        .date-gara {
+                            text-align: left;
+                        }
+                    }
+
+                    .date-gara {
+                        display: block;
+                        background-color: #f0b203;
+                        color: white;
+                        font-size: 2.5rem;
+                        line-height: 2.75rem;
+                        padding: .8rem 3rem;
+                        text-align: center;
+
+                        span {
+                            display: block;
+
+                            &.day {
+                                font-size: 2.8rem;
+                                line-height: 2.9rem;
+                                font-weight: 400;
+                            }
+                            &.month {
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+                }
             }
 
             .content-gara {
+                margin: 2rem 0 2rem 2rem;
+
                 p {
                     font-weight: 300;
                     font-size: 1em;
@@ -145,76 +198,76 @@
                         gap: 20px;
                         margin: .5em 0;
                         cursor: pointer;
-                        // width: 49%;
+                    //     // width: 49%;
 
                         @media screen and (min-width: 992px) {
                             // width: 20%;
                             margin: 1em 0;
                         }
 
-                        li {
-                            color: #fff;
-                            background: #f0b203;
-                            position: relative;
-                            width: 3em;
-                            height: 3em;
-                            line-height: 3em;
-                            border-radius: 50%;
-                            display: inline-block;
-                            text-align: center;
-                            white-space: nowrap;
-                            // vertical-align: middle;
+                    //     li {
+                    //         color: #fff;
+                    //         background: #f0b203;
+                    //         position: relative;
+                    //         width: 3em;
+                    //         height: 3em;
+                    //         line-height: 3em;
+                    //         border-radius: 50%;
+                    //         display: inline-block;
+                    //         text-align: center;
+                    //         white-space: nowrap;
+                    //         // vertical-align: middle;
 
-                            a {
-                                display: block;
-                                text-indent: -999em;
-                                overflow: hidden;
-                            }
+                    //         a {
+                    //             display: block;
+                    //             text-indent: -999em;
+                    //             overflow: hidden;
+                    //         }
 
-                            &.disabled {
-                                background-color: #a1a1a1;
-                            }
+                    //         &.disabled {
+                    //             background-color: #a1a1a1;
+                    //         }
 
-                        }
+                    //     }
 
-                        span {
-                            color: #bc2b0a;
-                            letter-spacing: .05em;
-                            font-size: .9em;
-                            // padding: 0 1.5em;
-                            margin: 0;
-                            border: 0;
-                            font: inherit;
-                            vertical-align: baseline;
-                            white-space: nowrap;
-                        }
+                    //     span {
+                    //         color: #bc2b0a;
+                    //         letter-spacing: .05em;
+                    //         font-size: .9em;
+                    //         // padding: 0 1.5em;
+                    //         margin: 0;
+                    //         border: 0;
+                    //         font: inherit;
+                    //         vertical-align: baseline;
+                    //         white-space: nowrap;
+                    //     }
                     }
 
-                    li {
-                        &:not(.disabled) a::after {
-                            content: '';
-                            display: block;
-                            width: 100%;
-                            height: 100%;
-                            border-radius: 50%;
-                            position: absolute;
-                            left: 0;
-                            top: 0;
-                            background: #bc2b0a;
-                            z-index: 0;
-                            transform: scale(0);
-                            opacity: 0;
-                            transition-property: transform, opacity;
-                            transition-duration: 1.5s;
-                            transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000);
-                        }
+                    // li {
+                    //     &:not(.disabled) a::after {
+                    //         content: '';
+                    //         display: block;
+                    //         width: 100%;
+                    //         height: 100%;
+                    //         border-radius: 50%;
+                    //         position: absolute;
+                    //         left: 0;
+                    //         top: 0;
+                    //         background: #bc2b0a;
+                    //         z-index: 0;
+                    //         transform: scale(0);
+                    //         opacity: 0;
+                    //         transition-property: transform, opacity;
+                    //         transition-duration: 1.5s;
+                    //         transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+                    //     }
 
-                        &:hover a::after {
-                            transform: scale(1);
-                            opacity: 1;
-                            transition-duration: .5s;
-                        }
-                    }
+                    //     &:hover a::after {
+                    //         transform: scale(1);
+                    //         opacity: 1;
+                    //         transition-duration: .5s;
+                    //     }
+                    // }
                 }
             }
         }

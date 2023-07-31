@@ -95,22 +95,17 @@
   transition-duration: 5000ms;
 }
 .tmpl-gare #gare h2 {
-  color: #000;
+  color: #f0b203;
   font-size: 1.5em;
   text-transform: uppercase;
   line-height: 1.2em;
   letter-spacing: 0.1em;
-  text-align: center;
-  margin: 2rem;
+  margin: 2rem 0 2rem 2rem;
 }
-.tmpl-gare #gare h2:after {
-  content: "";
-  background-color: #f0b203;
-  height: 4px;
-  width: 50px;
-  display: block;
-  margin: 25px auto;
-  margin-left: 0;
+@media screen and (min-width: 640px) {
+  .tmpl-gare #gare h2 {
+    margin-top: 0;
+  }
 }
 .tmpl-gare #gare .listCompetitionContainer {
   padding-bottom: 30px;
@@ -130,10 +125,10 @@
 .tmpl-gare #gare .gara.first {
   border-color: #bc2b0a;
 }
-.tmpl-gare #gare .gara.first h2:after {
-  background-color: #bc2b0a;
+.tmpl-gare #gare .gara.first h2 {
+  color: #bc2b0a;
 }
-.tmpl-gare #gare .gara.first footer .social-links .liContainer li {
+.tmpl-gare #gare .gara.first .textSection .titleSection .date-gara {
   background-color: #bc2b0a;
 }
 .tmpl-gare #gare .gara .textSection {
@@ -144,6 +139,41 @@
   .tmpl-gare #gare .gara .textSection {
     padding: 2.62em;
   }
+}
+.tmpl-gare #gare .gara .textSection .titleSection {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 640px) {
+  .tmpl-gare #gare .gara .textSection .titleSection {
+    flex-direction: row;
+  }
+  .tmpl-gare #gare .gara .textSection .titleSection .date-gara {
+    text-align: left;
+  }
+}
+.tmpl-gare #gare .gara .textSection .titleSection .date-gara {
+  display: block;
+  background-color: #f0b203;
+  color: white;
+  font-size: 2.5rem;
+  line-height: 2.75rem;
+  padding: 0.8rem 3rem;
+  text-align: center;
+}
+.tmpl-gare #gare .gara .textSection .titleSection .date-gara span {
+  display: block;
+}
+.tmpl-gare #gare .gara .textSection .titleSection .date-gara span.day {
+  font-size: 2.8rem;
+  line-height: 2.9rem;
+  font-weight: 400;
+}
+.tmpl-gare #gare .gara .textSection .titleSection .date-gara span.month {
+  text-transform: capitalize;
+}
+.tmpl-gare #gare .gara .content-gara {
+  margin: 2rem 0 2rem 2rem;
 }
 .tmpl-gare #gare .gara .content-gara p {
   font-weight: 300;
@@ -178,58 +208,6 @@
   .tmpl-gare #gare .gara footer .social-links .liContainer {
     margin: 1em 0;
   }
-}
-.tmpl-gare #gare .gara footer .social-links .liContainer li {
-  color: #fff;
-  background: #f0b203;
-  position: relative;
-  width: 3em;
-  height: 3em;
-  line-height: 3em;
-  border-radius: 50%;
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-}
-.tmpl-gare #gare .gara footer .social-links .liContainer li a {
-  display: block;
-  text-indent: -999em;
-  overflow: hidden;
-}
-.tmpl-gare #gare .gara footer .social-links .liContainer li.disabled {
-  background-color: #a1a1a1;
-}
-.tmpl-gare #gare .gara footer .social-links .liContainer span {
-  color: #bc2b0a;
-  letter-spacing: 0.05em;
-  font-size: 0.9em;
-  margin: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-.tmpl-gare #gare .gara footer .social-links li:not(.disabled) a::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: #bc2b0a;
-  z-index: 0;
-  transform: scale(0);
-  opacity: 0;
-  transition-property: transform, opacity;
-  transition-duration: 1.5s;
-  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-}
-.tmpl-gare #gare .gara footer .social-links li:hover a::after {
-  transform: scale(1);
-  opacity: 1;
-  transition-duration: 0.5s;
 }
 
 body #request-panel h3 {
