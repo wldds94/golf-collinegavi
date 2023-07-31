@@ -53,11 +53,27 @@ else { $bridge_qode_paged = 1; }
                         <label style="color:#691a0f!important"><?= esc_html__('Seleziona data') ?></label>
                         <div class="filter-select-container">
                             <select data-placeholder="mese" name="mese">
-                                <?php for($month = 1; $month < 13; $month++){
+                                <?php 
+                                $month_i18n = array(
+                                    "January" => "Gennaio",
+                                    "February" => "Febbraio",
+                                    "March" => "Marzo",
+                                    "April" => "Aprile",
+                                    "May" => "Maggio",
+                                    "June" => "Giugno",
+                                    "July" => "Luglio",
+                                    "August" => "Agosto",
+                                    "September" => "Settembre",
+                                    "October" => "Ottobre",
+                                    "November" => "Novembre",
+                                    "December" => "Dicembre",
+                                );
+                                for($month = 1; $month < 13; $month++){
                                     $dateObj   = DateTime::createFromFormat('!m', $month);
-                                    $monthName = $dateObj->format('F');
+                                    $monthName = $month_i18n[$dateObj->format('F')];
                                     echo '<option name="mese" value="'. $month .'" ' . selected( $month, (int) date('m') ) . '>' . esc_html($monthName).'</option>';
-                                } ?>
+                                } 
+                                ?>
                             </select>
                             <select data-placeholder="anno" name="anno">
                                 <?php for($year = 2016; $year <= (int)(date('Y')); $year++){

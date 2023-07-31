@@ -7,7 +7,23 @@ if(isset($evidence) && true === $evidence) echo '<h3>'.esc_html__('Ultima gara',
             <div>
                 <span class="date-gara">
                     <span class="day"><?php echo esc_html__(($dateObj->format('d'))) ?></span>
-                    <span class="month"><?php echo esc_html__(($dateObj->format('M'))) ?></span>
+                    <?php
+                    $month_i18n = array(
+                        "Jan" => "Gen",
+                        "Feb" => "Feb",
+                        "Mar" => "Mar",
+                        "Apr" => "Apr",
+                        "May" => "Mag",
+                        "Jun" => "Giu",
+                        "Jul" => "Lug",
+                        "Aug" => "Ago",
+                        "Sep" => "Set",
+                        "Oct" => "Ott",
+                        "Nov" => "Nov",
+                        "Dec" => "Dic",
+                    );
+                    ?>
+                    <span class="month"><?php echo esc_html__(($month_i18n[$dateObj->format('M')])) ?></span>
                 </span>
             </div>
             <div>
