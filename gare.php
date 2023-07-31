@@ -51,18 +51,20 @@ else { $bridge_qode_paged = 1; }
                 <div class="select-date">
                     <div class="filter-gare-container">
                         <label style="color:#691a0f!important"><?= esc_html__('Seleziona data') ?></label>
-                        <select data-placeholder="mese" name="mese">
-                            <?php for($month = 1; $month < 13; $month++){
-                                $dateObj   = DateTime::createFromFormat('!m', $month);
-                                $monthName = $dateObj->format('F');
-                                echo '<option name="mese" value="'. $month .'" ' . selected( $month, (int) date('m') ) . '>' . esc_html($monthName).'</option>';
-                            } ?>
-                        </select>
-                        <select data-placeholder="anno" name="anno">
-                            <?php for($year = 2016; $year <= (int)(date('Y')); $year++){
-                                echo '<option name="anno" value="'.$year.'" '.  selected($year, (int)date('Y')).'>'.$year.'</option>';
-                            } ?>
-                        </select>
+                        <div class="filter-select-container">
+                            <select data-placeholder="mese" name="mese">
+                                <?php for($month = 1; $month < 13; $month++){
+                                    $dateObj   = DateTime::createFromFormat('!m', $month);
+                                    $monthName = $dateObj->format('F');
+                                    echo '<option name="mese" value="'. $month .'" ' . selected( $month, (int) date('m') ) . '>' . esc_html($monthName).'</option>';
+                                } ?>
+                            </select>
+                            <select data-placeholder="anno" name="anno">
+                                <?php for($year = 2016; $year <= (int)(date('Y')); $year++){
+                                    echo '<option name="anno" value="'.$year.'" '.  selected($year, (int)date('Y')).'>'.$year.'</option>';
+                                } ?>
+                            </select>
+                        </div>
                     </div>
                     
                 </div>
