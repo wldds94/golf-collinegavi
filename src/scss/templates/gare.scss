@@ -16,6 +16,102 @@
         text-align: center;
         padding: 2.62em;
 
+        $background: #e74c3c;
+        $select-color: #fff;
+        $select-background: #f08400;
+        $select-width: 220px;
+        $select-height: 40px;
+
+        .filter-gare-container {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+            .select-hidden {
+                display: none;
+                visibility: hidden;
+                padding-right: 10px;
+            }
+
+            .select {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                font-size: 16px;
+                color: $select-color;
+                width: $select-width;
+                height: $select-height;
+            }
+
+            .select-styled {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: $select-background;
+                padding: 8px 15px;
+                text-indent: -15px;
+                
+                &:after {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border: 7px solid transparent;
+                    border-color: $select-color transparent transparent transparent;
+                    position: absolute;
+                    top: 16px;
+                    right: 10px;
+                }
+
+                &:hover {
+                    background-color: darken($select-background, 2);
+                }
+
+                &:active,
+                &.active {
+                    background-color: darken($select-background, 5);
+
+                    &:after {
+                        top: 9px;
+                        border-color: transparent transparent $select-color transparent;
+                    }
+                }
+            }
+
+            .select-options {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                z-index: 999;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                background-color: darken($select-background, 5);
+                max-height: 250px;
+                overflow: auto;
+
+                li {
+                    margin: 0;
+                    padding: 12px 0;
+                    border-top: 1px solid darken($select-background, 10);
+
+                    &:hover,
+                    &.is-selected {
+                        color: $select-background;
+                        background: $select-color;
+                    }
+
+                    &[rel="hide"] {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+
         label {
             color: #fff;
             font-size: .8em;
@@ -62,6 +158,7 @@
             letter-spacing: 0.1em;
             // text-align: center;
             margin: 2rem 0 2rem 2rem;
+
             @media screen and (min-width: 640px) {
                 margin-top: 0;
             }
@@ -157,6 +254,7 @@
                                 line-height: 2.9rem;
                                 font-weight: 400;
                             }
+
                             &.month {
                                 text-transform: capitalize;
                             }
@@ -198,49 +296,65 @@
                         gap: 20px;
                         margin: .5em 0;
                         cursor: pointer;
-                    //     // width: 49%;
+                        //     // width: 49%;
 
                         @media screen and (min-width: 992px) {
                             // width: 20%;
                             margin: 1em 0;
                         }
 
-                    //     li {
-                    //         color: #fff;
-                    //         background: #f0b203;
-                    //         position: relative;
-                    //         width: 3em;
-                    //         height: 3em;
-                    //         line-height: 3em;
-                    //         border-radius: 50%;
-                    //         display: inline-block;
-                    //         text-align: center;
-                    //         white-space: nowrap;
-                    //         // vertical-align: middle;
+                        li {
+                            a {
+                                display: flex;
 
-                    //         a {
-                    //             display: block;
-                    //             text-indent: -999em;
-                    //             overflow: hidden;
-                    //         }
+                                svg {
+                                    width: 24px;
+                                    height: 24px;
+                                }
+                            }
 
-                    //         &.disabled {
-                    //             background-color: #a1a1a1;
-                    //         }
+                            span {
+                                display: block;
+                            }
+                        }
 
-                    //     }
 
-                    //     span {
-                    //         color: #bc2b0a;
-                    //         letter-spacing: .05em;
-                    //         font-size: .9em;
-                    //         // padding: 0 1.5em;
-                    //         margin: 0;
-                    //         border: 0;
-                    //         font: inherit;
-                    //         vertical-align: baseline;
-                    //         white-space: nowrap;
-                    //     }
+                        //     li {
+                        //         color: #fff;
+                        //         background: #f0b203;
+                        //         position: relative;
+                        //         width: 3em;
+                        //         height: 3em;
+                        //         line-height: 3em;
+                        //         border-radius: 50%;
+                        //         display: inline-block;
+                        //         text-align: center;
+                        //         white-space: nowrap;
+                        //         // vertical-align: middle;
+
+                        //         a {
+                        //             display: block;
+                        //             text-indent: -999em;
+                        //             overflow: hidden;
+                        //         }
+
+                        //         &.disabled {
+                        //             background-color: #a1a1a1;
+                        //         }
+
+                        //     }
+
+                        //     span {
+                        //         color: #bc2b0a;
+                        //         letter-spacing: .05em;
+                        //         font-size: .9em;
+                        //         // padding: 0 1.5em;
+                        //         margin: 0;
+                        //         border: 0;
+                        //         font: inherit;
+                        //         vertical-align: baseline;
+                        //         white-space: nowrap;
+                        //     }
                     }
 
                     // li {
@@ -580,7 +694,7 @@ body {
                                     padding-top: 1em !important;
                                 }
 
-                                & > .single-score {
+                                &>.single-score {
                                     padding: 8px;
                                 }
 
@@ -629,9 +743,11 @@ body {
                             &:nth-child(1) {
                                 width: 34%;
                             }
+
                             &:nth-child(2) {
                                 width: 45%;
                             }
+
                             // @media screen and (min-width: 640px) {
                             //     &:nth-child(1) {
                             //         width: 34%;
@@ -643,25 +759,31 @@ body {
                         }
                     }
                 }
+
                 .tbody {
                     .tr {
                         .td {
                             &:nth-child(1) {
                                 width: 14%;
                             }
+
                             &:nth-child(2) {
                                 width: 10%;
                             }
+
                             &:nth-child(3) {
                                 width: 55%;
                             }
+
                             @media screen and (min-width: 640px) {
                                 &:nth-child(1) {
                                     width: 20%;
                                 }
+
                                 &:nth-child(2) {
                                     width: 10%;
                                 }
+
                                 &:nth-child(3) {
                                     width: 60%;
                                 }
@@ -678,27 +800,37 @@ body {
                             &:nth-child(1) {
                                 width: 26%;
                             }
+
                             &:nth-child(2) {
                                 width: 25%;
                             }
-                            &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+
+                            &:nth-child(3),
+                            &:nth-child(4),
+                            &:nth-child(5) {
                                 width: 8%;
                             }
                         }
                     }
                 }
+
                 .tbody {
                     .tr {
                         .td {
                             &:nth-child(1) {
                                 width: 24%;
                             }
+
                             &:nth-child(2) {
                                 width: 27%;
                             }
-                            &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+
+                            &:nth-child(3),
+                            &:nth-child(4),
+                            &:nth-child(5) {
                                 width: 7%;
                             }
+
                             // @media screen and (min-width: 640px) {
                             //     &:nth-child(1) {
                             //         width: 20%;

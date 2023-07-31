@@ -40,7 +40,7 @@ var onchange = function () {
 
                 if (!li.hasClass('document')) {
                     e.preventDefault()
-                    e.stopImmediatePropagation() 
+                    e.stopImmediatePropagation()
                 }
 
                 globalPosition = $(this).offset().top - 350;
@@ -97,27 +97,17 @@ var onchange = function () {
         },
     });
 };
-// $('#load-more').click(function () {
-//     step = ( step+5 <= size) ? step+5 : size;
 
-//     $('.gara:lt('+step+')').fadeIn();
-//     if( ( step >= size) )
-//             $('#load-more').hide();
-// });
-// $('select').selectOrDie({
-//     onChange: onchange(),
-//     size: 6
-// });
-// $('.select-date').on('click', onchange)
 $('.select-date select[name="mese"]').on('change', onchange)
 $('.select-date select[name="mese"]').trigger('change');
+$('.select-date select[name="anno"]').on('change', onchange)
 
 /**
  * 
  * FUNCTIONS
 */
-var call_show_score = function (e){
-    
+var call_show_score = function (e) {
+
     var tr = $(this).parent('span').parent('.td').parent('.tr');
     var table = tr.parent('.tbody').parent('.table');
     var prev = $(table).parent('.classificaSingolaContainer');
@@ -134,20 +124,20 @@ var call_show_score = function (e){
     };
 
     const elementScore = $(tr).find('.scoreSingleContainerRequest')
-    
+
     $.ajax({
         url: golfgavi_vars?.ajax_url,
         type: 'post',
         data: $formData,
-        success: function( result ) {
+        success: function (result) {
             $(elementScore).html(result);
             $(elementScore).addClass('panel-open')
             // var elementScore = $('.scoreContainer');
             // var elementRanking = $(table).parent('.classificaSingolaContainer').parent('.block').parent('.single-table').find('.block.classifica-singola');
             // var scrollTop = $('.overlay').scrollTop();
-            
+
             // slideAwayAndChangeContentPanel(elementScore, 'away', result, '.single-table', scrollTop);
-            $('#request-panel').on('click','.back', function() {
+            $('#request-panel').on('click', '.back', function () {
                 const elementScoreBackContainer = $(this).parent('.single-score').parent('.td') // .find('.scoreSingleContainerRequest')
                 $(elementScoreBackContainer).removeClass('panel-open')
                 $(elementScoreBackContainer).html('')
@@ -157,3 +147,57 @@ var call_show_score = function (e){
 }
 
 $(document).on('click', '.call_show_score', call_show_score)
+
+/** CUSTOM SELECT */
+$('select').each(function () {
+    var $this = $(this), numberOfOptions = $(this).children('option').length;
+
+    $this.addClass('select-hidden');
+    $this.wrap('<div class="select"></div>');
+    $this.after('<div class="select-styled"></div>');
+
+    var $styledSelect = $this.next('div.select-styled');
+    $styledSelect.text($this.children('option:selected').text());
+
+    var $list = $('<ul />', {
+        'class': 'select-options'
+    }).insertAfter($styledSelect);
+
+    for (var i = 0; i < numberOfOptions; i++) {
+        $('<li />', {
+            text: $this.children('option').eq(i).text(),
+            rel: $this.children('option').eq(i).val()
+        }).appendTo($list);
+        if ($this.children('option').eq(i).is(':selected')) {
+            $('li[rel="' + $this.children('option').eq(i).val() + '"]').addClass('is-selected')
+        }
+    }
+
+    var $listItems = $list.children('li');
+
+    $styledSelect.click(function (e) {
+        e.stopPropagation();
+        $('div.select-styled.active').not(this).each(function () {
+            $(this).removeClass('active').next('ul.select-options').hide();
+        });
+        $(this).toggleClass('active').next('ul.select-options').toggle();
+    });
+
+    $listItems.click(function (e) {
+        console.log("click item");
+        e.stopPropagation();
+        $styledSelect.text($(this).text()).removeClass('active');
+        $this.val($(this).attr('rel'));
+        $list.find('li.is-selected').removeClass('is-selected');
+        $list.find('li[rel="' + $(this).attr('rel') + '"]').addClass('is-selected');
+        $list.hide();
+        $this.trigger('change')
+        //console.log($this.val());
+    });
+
+    $(document).click(function () {
+        $styledSelect.removeClass('active');
+        $list.hide();
+    });
+
+});
