@@ -338,6 +338,26 @@
                             span {
                                 display: block;
                             }
+
+                            &.document {
+                                svg {
+                                    width: 35px;
+                                    height: 35px;
+                                    margin-top: -9px;
+                                    margin-right: -9px;
+                                }
+                            }
+
+                            &.disabled {
+                                a:hover {
+                                    color: #5b5a59;
+                                    cursor: default;
+                                }
+                            }
+                        }
+
+                        &.disabled {
+                            cursor: default;
                         }
 
 
